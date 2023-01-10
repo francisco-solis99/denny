@@ -1,17 +1,62 @@
 ---
- const {titlePage, descriptionPage} = Astro.props
+	import '../global.css';
+
+	interface Props {
+		titlePage: string
+		descriptionPage: string
+	}
+
+	const {
+		titlePage = 'Proveedores de Dulces al por Mayor | Dulcerías Denny',
+		descriptionPage = 'Contamos con 130 marcas diferentes de caramelos, chocolates, paletas, y más. Nuestros 30 años de experiencia nos respaldan. ¡Visítanos hoy mismo!'
+	} = Astro.props;
 ---
 
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<meta name="description" content={descriptionPage}>
+		<title>{titlePage}</title>
 	</head>
 	<body>
-		<slot/>
+		<div class="wrapper-web">
+			<slot/>
+		</div>
 	</body>
 </html>
+
+
+<style>
+	@font-face {
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url('/fonts/Roboto-Regular.ttf') format(truetype),
+		url('/fonts/Roboto-Regular.woff2') format('woff2');
+	}
+	@font-face {
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 500;
+		font-display: swap;
+		src: url('/fonts/Roboto-Medium.ttf') format(truetype),
+		url('/fonts/Roboto-Medium.woff2') format('woff2');
+	}
+	@font-face {
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 900;
+		font-display: swap;
+		src: url('/fonts/Roboto-Black.ttf') format(truetype),
+		url('/fonts/Roboto-Black.woff2') format('woff2');
+	}
+
+	html, body {
+		font-family: 'Roboto', sans-serif;
+	}
+</style>

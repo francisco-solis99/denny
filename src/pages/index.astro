@@ -1,15 +1,25 @@
 ---
+	import Layout from "@layouts/Layout.astro";
+
+	const titlePage = '★ Proveedores de Dulces al por Mayor | Dulcerías Denny';
+	const descriptionPage = 'Contamos con 130 marcas diferentes de caramelos, chocolates, paletas, y más. Nuestros 30 años de experiencia nos respaldan. ¡Visítanos hoy mismo!';
+
+
+
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout titlePage={titlePage} descriptionPage={descriptionPage}>
+	<main class="container">
+		<!-- Hero -->
+			<h1 class="">Distribuidora de dulces</h1>
+			<h2 class="">Encuentra caramelos, paletas, botanas, y chocolates al mejor precio</h2>
+	</main>
+	<!-- Slider -->
+	<section></section>
+	<!-- Subcopy -->
+	<section></section>
+	<!-- Favorites -->
+	<section></section>
+	<!-- Seasons -->
+	<section></section>
+</Layout>
