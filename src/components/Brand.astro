@@ -1,0 +1,17 @@
+---
+  interface Props {
+    name: string,
+    imgSrc: string,
+    nameVisible?: boolean
+  };
+
+  const {name, imgSrc, nameVisible = true} = Astro.props;
+---
+
+
+<figure class="">
+  <img src={imgSrc} alt={`Marca - ${name}`} class="">
+  {
+    nameVisible && <figcaption>{name}</figcaption>
+  }
+</figure>
