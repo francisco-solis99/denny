@@ -5,7 +5,7 @@
 
 @layer components {
   .wrapper-web {
-    @apply max-w-[1440px] min-w-[300px]
+    @apply max-w-[2440px] min-w-[300px]
   }
 
   .container {
