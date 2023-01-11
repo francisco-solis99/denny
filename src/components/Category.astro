@@ -1,0 +1,20 @@
+---
+  interface Props {
+    name: string,
+    imgSrc: string
+  }
+
+  const {name, imgSrc} = Astro.props
+
+---
+
+
+<article>
+  <a href="#">
+    <figure class="flex items-center">
+      <img src={imgSrc} alt={`Categoria-${name}`} class="w-full h-full object-cover mr-4">
+      <figcaption>{name}</figcaption>
+    </figure>
+  </a>
+</article>
+
