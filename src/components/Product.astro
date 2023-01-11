@@ -1,0 +1,30 @@
+---
+
+  interface Props {
+    name: string,
+    quantity: string,
+    price: number,
+    prevPrice?: number
+    imgSrc: string
+  }
+
+  const {name, quantity, price, prevPrice, imgSrc} = Astro.props;
+
+
+---
+
+
+<article class="max-w-[250px] text-center">
+  <picture class="max-h-[200px] bg-red-700">
+    <img src={imgSrc} alt={`Producto - ${name}`} class="w-full object-cover aspect-square">
+  </picture>
+  <div class="text-center">
+    <p class="font-bold">{name}</p>
+    <p class="font-medium">{quantity}</p>
+    <p class="font-medium">
+      {prevPrice && <span class="text-denny-pink line-through">{`$${prevPrice}`}</span>}
+      <span class="text-denny-blue-300">{`$${price}`}</span>
+    </p>
+  </div>
+  <a href="#" class="inline-block mt-6 bg-denny-blue-100 text-white rounded-3xl py-2 px-3" role="button">Me interesa</a>
+</article>
