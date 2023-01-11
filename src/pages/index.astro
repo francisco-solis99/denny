@@ -1,25 +1,231 @@
 ---
 	import Layout from "@layouts/Layout.astro";
+	import Category from "@components/Category.astro";
+	import Product from "@components/Product.astro";
 
 	const titlePage = '★ Proveedores de Dulces al por Mayor | Dulcerías Denny';
 	const descriptionPage = 'Contamos con 130 marcas diferentes de caramelos, chocolates, paletas, y más. Nuestros 30 años de experiencia nos respaldan. ¡Visítanos hoy mismo!';
 
+	const categories = [
+		{
+			name: 'Chocolates',
+			image: '/images/categories/cat-chocolates.webp'
+		},
+		{
+			name: 'Paletas',
+			image: '/images/categories/cat-paletas.webp'
+		},
+		{
+			name: 'Caramelos',
+			image: '/images/categories/cat-caramelos.webp'
+		},
+		{
+			name: 'Gomitas',
+			image: '/images/categories/cat-gomitas.webp'
+		}
+	]
 
+	const favorites = [
+		{
+			name: 'Panditas Clasicos',
+			quantity: 'Caja 20 pzas',
+			price: 120.00,
+			imgSrc: '/images/products/product1.png'
+		},
+		{
+			name: 'Tutsi Sustos Surtido',
+			quantity: 'Caja 24 pzas',
+			price: 144.00,
+			prevPrice: 180.00,
+			imgSrc: '/images/products/product2.png'
+		},
+		{
+			name: 'Paleta Payaso',
+			quantity: 'Caja 24 pzas',
+			price: 230.00,
+			imgSrc: '/images/products/product3.png'
+		}
+	]
 
 ---
 
 <Layout titlePage={titlePage} descriptionPage={descriptionPage}>
-	<main class="container">
-		<!-- Hero -->
-			<h1 class="">Distribuidora de dulces</h1>
-			<h2 class="">Encuentra caramelos, paletas, botanas, y chocolates al mejor precio</h2>
+	<!-- Hero -->
+	<main id="hero" class="w-full min-h-[75vh] flex items-center relative overflow-hidden bg-gradient-to-br from-denny-blue-200 to-denny-blue-400 text-white">
+		<img src="/images/moritas.webp" alt="Dulce-moritas" class="layer absolute top-0 left-[3%] object-cover" data-speed="-4"/>
+		<img src="/images/gomitas.webp" alt="Dulce-gomitas" class="layer absolute bottom-0 left-[3%] md:left-[40%] object-cover" data-speed="5"/>
+		<img src="/images/dulces.webp" alt="Dulce-varios" class="layer absolute bottom-0 right-0 object-cover" data-speed="-2"/>
+		<div class="container relative mb-28 lg:mb-0">
+				<h1 class="text-4xl md:text-5xl font-bold uppercase">Distribuidora de dulces</h1>
+				<h2 class="text-xl md:text-2xl mt-1">Encuentra caramelos, paletas, botanas, y chocolates al mejor precio</h2>
+		</div>
 	</main>
+
 	<!-- Slider -->
 	<section></section>
+
 	<!-- Subcopy -->
-	<section></section>
+	<section class="mt-8 py-5">
+		<div class="container text-center text-denny-dark-400">
+				<p>En Dulcerías Denny trabajamos con 130 marcas diferentes y contamos con más de 2,000 productos disponibles para su venta inmediata en cualquiera de nuestras 24 sucursales.</p>
+				<hgroup class="mt-8">
+					<h2 class="font-bold text-denny-blue-300 mb-2 text-lg">Dulces al mayoreo</h2>
+					<p>Si necesitas un distribuidor de dulces para surtir tu negocio, nosotros somos tu mejor opción.</p>
+				</hgroup>
+		</div>
+	</section>
+
+	<!-- Categories section -->
+	<section class="mt-8 py-5">
+		<div class="container">
+			<h2 class="font-bold text-denny-blue-300 text-center text-xl">¿Buscas algún producto en especial?</h2>
+			<div class="categories__wrapper grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] lg:grid-cols-4 gap-4 justify-items-center mt-6 mb-8 overflow-hidden">
+				{categories.map(category => {
+					return (<Category name={category.name} imgSrc={category.image}/>)
+				})}
+			</div>
+			<button id="btn-more-categories" class="flex items-center mx-auto text-denny-blue-100 font-bold">
+				<strong>Ver más categorías</strong>
+				<span class="inline-block rotate-180 ml-1">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-triangle" width="14" height="14" viewBox="0 0 24 24" stroke-width="1" stroke="#0D6FFF" fill="#0D6FFF" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
+					</svg>
+				</span>
+			</button>
+		</div>
+	</section>
+
 	<!-- Favorites -->
-	<section></section>
+	<section class="mt-8 py-5 relative overflow-hidden min-h-[80vh] flex items-center">
+		<img src="/images/confetti-left.svg" alt="Confetti-Left" class="w-[100px] lg:w-auto absolute top-0 -left-5">
+		<img src="/images/confetti-right.svg" alt="Confetti-Right" class="w-[100px] lg:w-auto absolute bottom-0 -right-5">
+		<div class="container">
+			<h2 class="font-bold text-denny-blue-300 text-center text-xl">Los favoritos de todos</h2>
+			<div class="favorites__wrapper mt-8 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-x-4 gap-y-5 justify-center justify-items-center">
+				{
+					favorites.map(fav => {
+						return (
+							<Product
+							name={fav.name}
+							quantity={fav.quantity}
+							prevPrice={fav.prevPrice ?? null}
+							price={fav.price}
+							imgSrc={fav.imgSrc}
+							/>
+						)
+					})
+				}
+			</div>
+		</div>
+	</section>
+
 	<!-- Seasons -->
-	<section></section>
+	<section class="mt-8 py-5">
+		<div class="container">
+			<hgroup>
+				<h2 class="font-bold text-denny-blue-300 text-center text-xl">Nuestros dulces por temporada</h2>
+				<p class="text-denny-dark-400">Contamos con una amplia variedad de confitería para endulzar los mejores momentos de tu vida.</p>
+			</hgroup>
+		</div>
+	</section>
+
+	<!-- Marcas -->
+	<section class="mt-8 py-5">
+		<div class="container">
+			<h2 class="font-bold text-denny-blue-300 text-center text-xl">Nuestras marcas de dulces</h2>
+			<div>
+				<!-- <figure><img src="" alt=""></figure>
+				<figure><img src="" alt=""></figure>
+				<figure><img src="" alt=""></figure>
+				<figure><img src="" alt=""></figure> -->
+			</div>
+		</div>
+	</section>
+
+	<!-- Banner -->
+	<section class="mt-8 py-5">
+		<div class="container">
+			 <div class="banner min-h-[250px] flex w-4/5 justify-center items-center py-5 px-10 mx-auto bg-gradient-to-br from-denny-blue-400 to-denny-blue-100 text-white rounded-3xl">
+				<picture class="mr-auto -translate-x-20 w-[20%]">
+					<img src="/images/shop.webp" alt="Dulces-Shop" class="w-full object-cover">
+				</picture>
+				<div class="mr-auto w-[80%]">
+					<h3 class="font-bold text-4xl">Permitenos ser tu proveedor de dulces</h3>
+					<div class="flex justify-between">
+						<ul class="banner__list">
+							<li>Precios especiales de mayoreo</li>
+							<li>Descuentos por volumen y recompra </li>
+							<li>+150 marcas y proveedores</li>
+						</ul>
+						<button class="bg-denny-green text-white py-3 px-3 self-end rounded-3xl shadow-md">Cotiza tu pedido</button>
+					</div>
+				</div>
+			 </div>
+		</div>
+	</section>
+
+	<!-- Most sell -->
+	<section class="mt-8 py-5">
+		<div class="container">
+			<h2 class="font-bold text-denny-blue-300 text-center text-xl">Los dulces y botanas más vendidos del mes</h2>
+			<div class="favorites__wrapper mt-8 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-x-4 gap-y-5 justify-center justify-items-center">
+				{
+					favorites.map(fav => {
+						return (
+							<Product
+							name={fav.name}
+							quantity={fav.quantity}
+							prevPrice={fav.prevPrice ?? null}
+							price={fav.price}
+							imgSrc={fav.imgSrc}
+							/>
+						)
+					})
+				}
+			</div>
+		</div>
+	</section>
 </Layout>
+
+
+<style>
+	.banner__list {
+		list-style-position: inside;
+	}
+	.banner__list li::marker {
+		content: url(/images/bullet.svg) " ";
+	}
+</style>
+
+<!-- JS -->
+<script>
+	// Parallax mousemove
+	const heroSection = document.querySelector('#hero');
+	heroSection.addEventListener('mousemove', parallaxMouse);
+	const candiesImages = heroSection.querySelectorAll<HTMLElement>('.layer');
+
+	function parallaxMouse(event) {
+		candiesImages.forEach(candyImg => {
+			const speed = Number(candyImg.dataset.speed);
+			const coords = {
+				x: (window.innerWidth - event.pageX * speed) / 100,
+				y: (window.innerHeight - event.pageY * speed) / 100
+			}
+
+			candyImg.style.transform =  `translate(${coords.x}px, ${coords.y}px)`
+		})
+	}
+
+	// See more
+	const btnMoreCategories = document.querySelector('#btn-more-categories');
+	btnMoreCategories.addEventListener('click', seeMoreCategories)
+	// const wrapperCategories = document.querySelector('.wrapper-categories');
+
+	function seeMoreCategories() {
+		btnMoreCategories.querySelector('span').classList.toggle('rotate-180');
+		// wrapperCategories.classList.toggle('h-auto')
+	}
+
+
+</script>
