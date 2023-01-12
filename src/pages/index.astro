@@ -1,131 +1,21 @@
 ---
+	//components
 	import Layout from "@layouts/Layout.astro";
 	import Category from "@components/Category.astro";
 	import Product from "@components/Product.astro";
 	import Season from "@components/Season.astro";
 	import Brand from "@components/Brand.astro";
 
+	// data
+	import categories from '@services/categories.json';
+	import seasons from '@services/seasons.json';
+	import products from '@services/products.json';
+	import brands from '@services/brands.json';
+
 	const titlePage = '★ Proveedores de Dulces al por Mayor | Dulcerías Denny';
 	const descriptionPage = 'Contamos con 130 marcas diferentes de caramelos, chocolates, paletas, y más. Nuestros 30 años de experiencia nos respaldan. ¡Visítanos hoy mismo!';
 
-	const categories = [
-		{
-			name: 'Chocolates',
-			image: '/images/categories/cat-chocolates.webp'
-		},
-		{
-			name: 'Paletas',
-			image: '/images/categories/cat-paletas.webp'
-		},
-		{
-			name: 'Caramelos',
-			image: '/images/categories/cat-caramelos.webp'
-		},
-		{
-			name: 'Gomitas',
-			image: '/images/categories/cat-gomitas.webp'
-		}
-	]
-
-	const favorites = [
-		{
-			name: 'Panditas Clasicos',
-			quantity: 'Caja 20 pzas',
-			price: 120.00,
-			imgSrc: '/images/products/product1.webp'
-		},
-		{
-			name: 'Tutsi Sustos Surtido',
-			quantity: 'Caja 24 pzas',
-			price: 144.00,
-			prevPrice: 180.00,
-			imgSrc: '/images/products/product2.webp'
-		},
-		{
-			name: 'Paleta Payaso',
-			quantity: 'Caja 24 pzas',
-			price: 230.00,
-			imgSrc: '/images/products/product3.webp'
-		}
-	]
-
-
-	const seasons = [
-		{
-			name: 'Día de muertos',
-			copy: 'Los mejores caramelos para poner en tu ofrenda.',
-			imgSrc: '/images/seasons/dia-muertos.webp'
-		},
-		{
-			name: 'Fiestas patrias',
-			copy: 'Disfruta del mes patrio con la selección de dulces y botanas más deliciosas.',
-			imgSrc: '/images/seasons/dia-muertos.webp'
-		},
-		{
-			name: 'San Valentín',
-			copy: 'El mejor regalo para esa persona especial.',
-			imgSrc: '/images/seasons/dia-muertos.webp'
-		},
-		{
-			name: 'Día del Niño',
-			copy: 'Celebra el día del niño con los más deliciosos dulces.',
-			imgSrc: '/images/seasons/dia-muertos.webp'
-		},
-		{
-			name: 'Navidad',
-			copy: 'Celebra con tus seres queridos las fiestas navideñas con los mejores dulces de la temporada.',
-			imgSrc: '/images/seasons/dia-muertos.webp'
-		},
-		{
-			name: 'Mesa de Dulces',
-			copy: 'Encuentra una gran variedad de dulces para decorar tu candy bar',
-			imgSrc: '/images/seasons/dia-muertos.webp'
-		},
-	]
-
-
-	const brands = [
-		{
-			name: 'De la rosa',
-			imgSrc: '/images/brands/marca-1.png',
-			nameVisible: false,
-		},
-		{
-			name: 'Ricolino',
-			imgSrc: '/images/brands/marca-2.png',
-			nameVisible: false,
-		},
-		{
-			name: 'Sonrics',
-			imgSrc: '/images/brands/marca-3.png',
-			nameVisible: false,
-		},
-		{
-			name: 'Dulces Vero',
-			imgSrc: '/images/brands/marca-4.png',
-			nameVisible: false,
-		},
-		{
-			name: 'Gamesa',
-			imgSrc: '/images/brands/marca-5.png',
-			nameVisible: false,
-		},
-		{
-			name: 'Sabritas',
-			imgSrc: '/images/brands/marca-6.png',
-			nameVisible: false,
-		},
-		{
-			name: 'De la rosa',
-			imgSrc: '/images/brands/marca-1.png',
-			nameVisible: false,
-		},
-		{
-			name: 'Ricolino',
-			imgSrc: '/images/brands/marca-2.png',
-			nameVisible: false,
-		}
-	]
+	const favorites = [...products].slice(0,3);
 
 ---
 
@@ -208,17 +98,17 @@
 				<p class="text-denny-dark-400 text-center mt-3">Contamos con una amplia variedad de confitería para endulzar los mejores momentos de tu vida.</p>
 			</hgroup>
 			<section class="seasons mt-14 relative overflow-hidden" aria-label="carousel">
-				<button id="btn-slider-prev" class="absolute top-1/2 left-0 z-30">
+				<button id="btn-slider-prev" class="absolute top-1/2 left-0 z-[3]">
 					<span>
 						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="50" fill="none"><path fill="#DBDAE2" d="M.0834 24.6814a3.0863 3.0863 0 0 1 .7396-1.7046L19.3524 1.3591A3.089 3.089 0 0 1 21.4973.0278a3.0876 3.0876 0 0 1 2.4213.7138 3.0857 3.0857 0 0 1 1.0807 2.2812 3.086 3.086 0 0 1-.9823 2.325L7.193 24.971l16.824 19.6232a3.0888 3.0888 0 0 1 .9823 2.3257 3.0854 3.0854 0 0 1-1.0807 2.2812 3.0878 3.0878 0 0 1-2.4213.7138 3.0915 3.0915 0 0 1-2.1449-1.3313L.823 26.966a3.0884 3.0884 0 0 1-.7396-2.2842v-.0004Z"/></svg>
 					</span>
 				</button>
-				<button id="btn-slider-next" class="absolute top-1/2 right-0 z-30">
+				<button id="btn-slider-next" class="absolute top-1/2 right-0 z-[3]">
 					<span>
 						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="50" fill="none"><path fill="#DBDAE2" d="M24.9166 24.6814a3.087 3.087 0 0 0-.7396-1.7046L5.6475 1.3591A3.0877 3.0877 0 0 0 1.0813.7416 3.0858 3.0858 0 0 0 .0008 3.0228a3.086 3.086 0 0 0 .9823 2.325L17.8071 24.971.9831 44.5942a3.089 3.089 0 0 0-.9824 2.3257 3.0855 3.0855 0 0 0 1.0807 2.2812 3.0878 3.0878 0 0 0 2.4213.7138 3.0913 3.0913 0 0 0 2.1448-1.3313L24.177 26.966a3.0889 3.0889 0 0 0 .7396-2.2842v-.0004Z"/></svg>
 					</span>
 				</button>
-				<div class="slides__container flex transition-transform ease-in delay-100">
+				<div class="slides__container flex transition-all ease-in delay-200">
 					{
 						seasons.map((season, index) => {
 							return (
