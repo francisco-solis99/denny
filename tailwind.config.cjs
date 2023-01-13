@@ -27,7 +27,12 @@ module.exports = {
             100: '#FF6F4C',
             200: '#EC054A'
           },
-          pink: '#FF007F',
+          pink: {
+            100: '#FFCEF2',
+            200: '#FFD5F4',
+            300: '#FECEE3',
+            400: '#FF007F'
+          },
           purple: '#64007C',
           yelllow: '#FFD500'
         }
