@@ -1,12 +1,13 @@
 ---
-	//components
+	//Layouts and Components
 	import Layout from "@layouts/Layout.astro";
 	import Category from "@components/Category.astro";
 	import Product from "@components/Product.astro";
 	import Season from "@components/Season.astro";
-	import Brand from "@components/Brand.astro";
+  import BrandsList from "@components/BrandsList.astro";
 
-	// data
+
+	//Data
 	import categories from '@services/categories.json';
 	import seasons from '@services/seasons.json';
 	import products from '@services/products.json';
@@ -16,15 +17,16 @@
 	const descriptionPage = 'Contamos con 130 marcas diferentes de caramelos, chocolates, paletas, y más. Nuestros 30 años de experiencia nos respaldan. ¡Visítanos hoy mismo!';
 
 	const favorites = [...products].slice(0,3);
+	const brandsHome = brands.slice(0, 8).map(brand => ({...brand, nameVisible: false}))
 
 ---
 
 <Layout titlePage={titlePage} descriptionPage={descriptionPage}>
 	<!-- Hero -->
 	<main id="hero" class="w-full min-h-[75vh] flex items-center relative overflow-hidden bg-gradient-to-br from-denny-blue-200 to-denny-blue-400 text-white">
-		<img src="/images/moritas.webp" alt="Dulce-moritas" class="layer absolute top-0 left-[3%] object-cover" data-speed="-4"/>
-		<img src="/images/gomitas.webp" alt="Dulce-gomitas" class="layer absolute bottom-0 left-[3%] md:left-[40%] object-cover" data-speed="5"/>
-		<img src="/images/dulces.webp" alt="Dulce-varios" class="layer absolute bottom-0 right-0 object-cover" data-speed="-2"/>
+		<img src="/images/home/moritas.webp" alt="Dulce-moritas" class="layer absolute top-0 left-[3%] object-cover" data-speed="-4"/>
+		<img src="/images/home/gomitas.webp" alt="Dulce-gomitas" class="layer absolute bottom-0 left-[3%] md:left-[40%] object-cover" data-speed="5"/>
+		<img src="/images/home/dulces.webp" alt="Dulce-varios" class="layer absolute bottom-0 right-0 object-cover" data-speed="-2"/>
 		<div class="container relative mb-28 lg:mb-0">
 				<h1 class="text-4xl md:text-5xl font-bold uppercase">Distribuidora de dulces</h1>
 				<h2 class="text-xl md:text-2xl mt-1">Encuentra caramelos, paletas, botanas, y chocolates al mejor precio</h2>
@@ -68,8 +70,8 @@
 
 	<!-- Favorites -->
 	<section class="mt-8 py-5 relative overflow-hidden min-h-[80vh] flex items-center">
-		<img src="/images/confetti-left.svg" alt="Confetti-Left" class="w-[100px] lg:w-auto absolute top-0 -left-5">
-		<img src="/images/confetti-right.svg" alt="Confetti-Right" class="w-[100px] lg:w-auto absolute bottom-0 -right-5">
+		<img src="/images/home/confetti-left.svg" alt="Confetti-Left" class="w-[100px] lg:w-auto absolute top-0 -left-5">
+		<img src="/images/home/confetti-right.svg" alt="Confetti-Right" class="w-[100px] lg:w-auto absolute bottom-0 -right-5">
 		<div class="container">
 			<h2 class="font-bold text-denny-blue-300 text-center text-xl">Los favoritos de todos</h2>
 			<div class="favorites__wrapper mt-8 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-x-4 gap-y-5 justify-center justify-items-center">
@@ -127,18 +129,8 @@
 	<section class="mt-8 py-5">
 		<div class="container text-center">
 			<h2 class="font-bold text-denny-blue-300 text-center text-xl">Nuestras marcas de dulces</h2>
-			<div class="grid grid-cols-[repeat(auto-fit,minmax(90px,1fr))] gap-4 mt-8 mb-10">
-				{
-					brands.map(brand => {
-						return (
-							<div class="max-w-[100px]">
-								<Brand name={brand.name} imgSrc={brand.imgSrc} nameVisible={brand.nameVisible}/>
-							</div>
-						)
-					})
-				}
-			</div>
-			<a href="#" class="py-2 px-3 inline-block bg-denny-blue-100 text-white rounded-3xl">Ver todos los productos por marca</a>
+			<BrandsList brandslist={brandsHome}/>
+			<a href="/marcas" class="py-2 px-3 inline-block bg-denny-blue-100 text-white rounded-3xl">Ver todos los productos por marca</a>
 		</div>
 	</section>
 
@@ -147,7 +139,7 @@
 		<div class="container">
 			 <div class="banner min-h-[250px] flex-col md:flex-row flex w-3/4 justify-center items-center py-5 px-10 mx-auto bg-gradient-to-br from-denny-blue-400 to-denny-blue-100 text-white rounded-3xl">
 				<picture class="min-w-[100px] max-w-[190px] w-3/4 lg:mr-auto lg:-translate-x-28 md:w-[30%] lg:w-[20%]">
-					<img src="/images/shop.webp" alt="Dulces-Shop" class="w-full object-cover">
+					<img src="/images/home/shop.webp" alt="Dulces-Shop" class="w-full object-cover">
 				</picture>
 				<div class="mt-6 md:mt-0 md:mr-auto md:w-[80%] ml-6">
 					<h3 class="font-bold text-2xl md:text-3xl">Permitenos ser tu proveedor de dulces</h3>
@@ -193,7 +185,7 @@
 		list-style-position: inside;
 	}
 	.banner__list li::marker {
-		content: url(/images/bullet.svg) " ";
+		content: url(/images/home/bullet.svg) " ";
 	}
 </style>
 
