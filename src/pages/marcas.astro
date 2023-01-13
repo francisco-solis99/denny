@@ -1,0 +1,25 @@
+---
+	import Layout from "@layouts/Layout.astro";
+  import BrandsList from "@components/BrandsList.astro";
+	import brands from '@services/brands.json';
+
+
+  const titlePage = '▷ Marcas de Dulces para tu Tienda | Venta por Mayoreo';
+  const descriptionPage = 'Si necesitas un Distribuidor de Dulces, nosotros contamos con más de 125 marcas diferentes para surtir tu Dulcería o Negocio ¡Contáctanos!';
+---
+
+
+<Layout titlePage={titlePage} descriptionPage={descriptionPage}>
+<main class="my-10">
+  <div class="container">
+    <header class="text-center">
+      <h1 class="text-denny-dark-500 font-black text-2xl lg:text-3xl">Marcas de Dulces para Venta por Mayoreo</h1>
+      <h2 class="mt-2 mb-4 text-denny-blue-300 font-medium text-lg lg:text-xl">Descubre nuestro amplio catálogo y selecciona tus favoritas</h2>
+      <p class="text-denny-dark-400">En Dulcerías Denny trabajamos con más de 130 marcas diferentes y contamos con más de 2,000 productos disponibles para su venta en cualquiera de nuestras sucursales.</p>
+    </header>
+    <section class="my-14">
+      <BrandsList brandslist={brands}/>
+    </section>
+  </div>
+</main>
+</Layout>
