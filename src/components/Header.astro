@@ -1,8 +1,12 @@
 ---
   import Contact from "./Contact.astro";
 ---
-
-<Contact/>
+<div id="contact-wrapper" class="lg:max-w-lg fixed right-0 translate-x-full top-0 bottom-0 z-20 transition-all">
+  <span id="btn-contact-close" class="absolute top-2 left-2 inline-block" role="button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none"><circle cx="18" cy="18" r="18" fill="#F90059"/><path fill="#fff" fill-rule="evenodd" d="M18 31.5c7.4566 0 13.5-6.0434 13.5-13.5S25.4566 4.5 18 4.5 4.5 10.5434 4.5 18 10.5434 31.5 18 31.5ZM7.0312 18c0-6.0592 4.9096-10.9688 10.9688-10.9688S28.9688 11.9409 28.9688 18 24.0592 28.9688 18 28.9688 7.0312 24.0592 7.0312 18Z" clip-rule="evenodd"/><path fill="#FF007F" d="M30.75 18c0 7.0424-5.7076 12.75-12.75 12.75v1.5c7.8709 0 14.25-6.3791 14.25-14.25h-1.5ZM18 5.25c7.0424 0 12.75 5.7076 12.75 12.75h1.5c0-7.8709-6.3791-14.25-14.25-14.25v1.5ZM5.25 18c0-7.0424 5.7076-12.75 12.75-12.75v-1.5C10.1291 3.75 3.75 10.1291 3.75 18h1.5ZM18 30.75c-7.0424 0-12.75-5.7076-12.75-12.75h-1.5c0 7.8709 6.3791 14.25 14.25 14.25v-1.5Zm0-24.4688C11.5266 6.2813 6.2812 11.5267 6.2812 18h1.5C7.7813 12.355 12.355 7.7812 18 7.7812v-1.5ZM29.7188 18c0-6.4734-5.2454-11.7188-11.7188-11.7188v1.5c5.645 0 10.2188 4.5738 10.2188 10.2188h1.5ZM18 29.7188c6.4734 0 11.7188-5.2454 11.7188-11.7188h-1.5c0 5.645-4.5738 10.2188-10.2188 10.2188v1.5ZM6.2812 18c0 6.4734 5.2454 11.7188 11.7188 11.7188v-1.5C12.355 28.2188 7.7812 23.645 7.7812 18h-1.5Z"/><path fill="#fff" stroke="#FF007F" d="M13.7292 13.7285c.4957-.4904 1.2972-.4904 1.7455 0l2.4785 2.4838 2.526-2.4838c.4957-.4904 1.2972-.4904 1.7455 0 .5378.4957.5378 1.2973 0 1.7455l-2.4364 2.4785 2.4364 2.526c.5378.4957.5378 1.2973 0 1.7455-.4483.5379-1.2498.5379-1.7455 0l-2.526-2.4363-2.4785 2.4363c-.4483.5379-1.2498.5379-1.7455 0-.4905-.4482-.4905-1.2498 0-1.7455l2.4837-2.526-2.4837-2.4785c-.4905-.4482-.4905-1.2498 0-1.7455Z"/></svg>
+  </span>
+  <Contact/>
+</div>
 <div id="overlay"></div>
 <header class="relative z-10">
   <div class="flex items-center bg-denny-blue-300 text-white min-h-[50px] px-6">
@@ -101,7 +105,7 @@
       <img src="/logo.svg" alt="Dulcerias Denny Logo" class="w-full h-full object-cover"/>
     </a>
     <div class="justify-self-end">
-      <button class="py-2 px-3 rounded-3xl text-sm font-semibold bg-denny-blue-100 text-white">
+      <button id="btn-contact-open" class="py-2 px-3 rounded-3xl text-sm font-semibold bg-denny-blue-100 text-white">
         Contactanos
       </button>
     </div>
@@ -132,20 +136,44 @@
 </style>
 
 <script>
-
+  // DOM elements
+  // Menu elements
   const navMenu = document.querySelector('#nav-menu');
+  const overlay = document.querySelector('#overlay');
   const menuNavBtn = document.querySelector('#btn-menu');
+  // Submenu elements
   const btnSubmenu = document.querySelector('#btn-submenu');
   const subMenu = document.querySelector('#submenu');
-  const overlay = document.querySelector('#overlay');
+  // Contact elements
+  const contactWrapper = document.querySelector('#contact-wrapper');
+  const btnContactOpen = document.querySelector('#btn-contact-open');
+  const btnContactClose = document.querySelector('#btn-contact-close');
 
+
+
+
+  // Menu
   menuNavBtn.addEventListener('click', () => {
     navMenu.classList.toggle('top-[100%]')
     subMenu.classList.remove('nav__submenu-toggle');
     overlay.classList.toggle('overlay__toggle');
   })
 
+  // Submenu
   btnSubmenu.addEventListener('click', () => {
     subMenu.classList.toggle('nav__submenu-toggle');
   })
+
+  // Contact
+  btnContactOpen.addEventListener('click', () => {
+    contactWrapper.classList.remove('translate-x-full')
+    contactWrapper.classList.add('translate-x-0')
+    overlay.classList.add('overlay__toggle');
+  });
+
+  btnContactClose.addEventListener('click', () => {
+    contactWrapper.classList.add('translate-x-full')
+    contactWrapper.classList.remove('translate-x-0')
+    overlay.classList.remove('overlay__toggle');
+  });
 </script>
