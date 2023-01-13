@@ -8,10 +8,11 @@
   const {name, imgSrc, nameVisible = true} = Astro.props;
 ---
 
-
-<figure class="">
-  <img src={imgSrc} alt={`Marca - ${name}`} class="">
-  {
-    nameVisible && <figcaption>{name}</figcaption>
-  }
-</figure>
+<a href="#" class="inline-grid">
+  <figure>
+    <img src={imgSrc} alt={`Marca - ${name}`} class="">
+    {
+      nameVisible && <h3><figcaption class="text-center mt-2 text-denny-dark-400">{name}</figcaption></h3>
+    }
+  </figure>
+</a>

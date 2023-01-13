@@ -1,0 +1,23 @@
+---
+	import Brand from "@components/Brand.astro";
+
+  interface Props {
+    brandslist: Array<any>
+  }
+
+  const { brandslist } = Astro.props;
+
+---
+
+
+<div class="grid grid-cols-[repeat(auto-fit,minmax(120px,1fr))] justify-items-center gap-x-5 gap-y-12 mt-8 mb-10">
+  {
+    brandslist.map(brand => {
+      return (
+        <div class="max-w-[120px]">
+          <Brand name={brand.name} imgSrc={brand.imgSrc} nameVisible={brand.nameVisible}/>
+        </div>
+      )
+    })
+  }
+</div>

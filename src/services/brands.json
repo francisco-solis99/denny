@@ -2,41 +2,151 @@
   {
     "name": "De la rosa",
     "imgSrc": "/images/brands/marca-1.png",
-    "nameVisible": false
+    "nameVisible": true
   },
   {
     "name": "Ricolino",
     "imgSrc": "/images/brands/marca-2.png",
-    "nameVisible": false
+    "nameVisible": true
   },
   {
     "name": "Sonrics",
     "imgSrc": "/images/brands/marca-3.png",
-    "nameVisible": false
+    "nameVisible": true
   },
   {
     "name": "Dulces Vero",
     "imgSrc": "/images/brands/marca-4.png",
-    "nameVisible": false
+    "nameVisible": true
   },
   {
     "name": "Gamesa",
     "imgSrc": "/images/brands/marca-5.png",
-    "nameVisible": false
+    "nameVisible": true
   },
   {
     "name": "Sabritas",
     "imgSrc": "/images/brands/marca-6.png",
-    "nameVisible": false
+    "nameVisible": true
   },
   {
     "name": "De la rosa",
     "imgSrc": "/images/brands/marca-1.png",
-    "nameVisible": false
+    "nameVisible": true
   },
   {
     "name": "Ricolino",
     "imgSrc": "/images/brands/marca-2.png",
-    "nameVisible": false
+    "nameVisible": true
+  },
+  {
+    "name": "De la rosa",
+    "imgSrc": "/images/brands/marca-1.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Ricolino",
+    "imgSrc": "/images/brands/marca-2.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Sonrics",
+    "imgSrc": "/images/brands/marca-3.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Dulces Vero",
+    "imgSrc": "/images/brands/marca-4.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Gamesa",
+    "imgSrc": "/images/brands/marca-5.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Sabritas",
+    "imgSrc": "/images/brands/marca-6.png",
+    "nameVisible": true
+  },
+  {
+    "name": "De la rosa",
+    "imgSrc": "/images/brands/marca-1.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Ricolino",
+    "imgSrc": "/images/brands/marca-2.png",
+    "nameVisible": true
+  },
+  {
+    "name": "De la rosa",
+    "imgSrc": "/images/brands/marca-1.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Ricolino",
+    "imgSrc": "/images/brands/marca-2.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Sonrics",
+    "imgSrc": "/images/brands/marca-3.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Dulces Vero",
+    "imgSrc": "/images/brands/marca-4.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Gamesa",
+    "imgSrc": "/images/brands/marca-5.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Sabritas",
+    "imgSrc": "/images/brands/marca-6.png",
+    "nameVisible": true
+  },
+  {
+    "name": "De la rosa",
+    "imgSrc": "/images/brands/marca-1.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Ricolino",
+    "imgSrc": "/images/brands/marca-2.png",
+    "nameVisible": true
+  },
+  {
+    "name": "De la rosa",
+    "imgSrc": "/images/brands/marca-1.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Ricolino",
+    "imgSrc": "/images/brands/marca-2.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Sonrics",
+    "imgSrc": "/images/brands/marca-3.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Dulces Vero",
+    "imgSrc": "/images/brands/marca-4.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Gamesa",
+    "imgSrc": "/images/brands/marca-5.png",
+    "nameVisible": true
+  },
+  {
+    "name": "Ricolino",
+    "imgSrc": "/images/brands/marca-2.png",
+    "nameVisible": true
   }
 ]
