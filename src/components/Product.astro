@@ -2,29 +2,37 @@
 
   interface Props {
     name: string,
-    quantity: string,
+    quantity?: string,
     price: number,
-    prevPrice?: number
-    imgSrc: string
+    prevPrice?: number,
+    imgSrc: string,
+    type?: string
   }
 
-  const {name, quantity, price, prevPrice, imgSrc} = Astro.props;
+  const {name, quantity, price, prevPrice, imgSrc, type = 'primary'} = Astro.props;
 
 
 ---
 
 
-<article class="max-w-[250px] text-center">
+<article class="max-w-[250px] text-center flex flex-col justify-between">
   <picture class="max-h-[200px]">
-    <img src={imgSrc} alt={`Producto - ${name}`} class="w-full object-cover aspect-square">
+    <img src={imgSrc} alt={`Producto - ${name}`} class="w-full h-full object-cover aspect-square">
   </picture>
-  <div class="text-center">
+  <div class="text-center mt-1">
     <p class="font-bold">{name}</p>
-    <p class="font-medium">{quantity}</p>
+    {
+      quantity && <p class="font-medium">{quantity}</p>
+    }
     <p class="font-medium">
       {prevPrice && <span class="text-denny-pink-400 line-through">{`$${prevPrice}`}</span>}
       <span class="text-denny-blue-300">{`$${price}`}</span>
     </p>
   </div>
-  <a href="#" class="inline-block mt-6 bg-denny-blue-100 text-white rounded-3xl py-2 px-3" role="button">Me interesa</a>
+  {
+    type === 'primary'
+    ? <a href="#" class="w-4/6 md:w-1/2 mx-auto inline-block mt-6 bg-denny-blue-100 text-white rounded-3xl py-2 px-3 transition-opacity hover:opacity-80" role="button">Me interesa</a>
+    : <a href="#" class="w-4/6 md:w-1/2 mx-auto inline-block mt-6 text-denny-pink-400 border-denny-pink-400 border rounded-3xl py-2 px-3 transition-colors hover:bg-denny-pink-400 hover:text-white" role="button">Me interesa</a>
+  }
+
 </article>
