@@ -17,5 +17,34 @@
     "quantity": "Caja 24 pzas",
     "price": 230,
     "imgSrc": "/images/products/product3.webp"
+  },
+  {
+    "name": "Kit Pa' la Pary Cucharas + Platos",
+    "price": 64.22,
+    "imgSrc": "/images/products/product4.webp"
+  },
+  {
+    "name": "Panditas Clasicos",
+    "quantity": "Caja 20 pzas",
+    "price": 120,
+    "imgSrc": "/images/products/product1.webp"
+  },
+  {
+    "name": "Tutsi Sustos Surtido",
+    "quantity": "Caja 24 pzas",
+    "price": 144,
+    "prevPrice": 180,
+    "imgSrc": "/images/products/product2.webp"
+  },
+  {
+    "name": "Paleta Payaso",
+    "quantity": "Caja 24 pzas",
+    "price": 230,
+    "imgSrc": "/images/products/product3.webp"
+  },
+  {
+    "name": "Kit Pa' la Pary Cucharas + Platos",
+    "price": 64.22,
+    "imgSrc": "/images/products/product4.webp"
   }
 ]
