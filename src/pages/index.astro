@@ -18,6 +18,9 @@
 	const titlePage = '★ Proveedores de Dulces al por Mayor | Dulcerías Denny';
 	const descriptionPage = 'Contamos con 130 marcas diferentes de caramelos, chocolates, paletas, y más. Nuestros 30 años de experiencia nos respaldan. ¡Visítanos hoy mismo!';
 
+	const initialCategories = categories.slice(0,4);
+	const restCategories = categories.slice(4);
+
 	const favorites = [...products].slice(0,3);
 	const brandsHome = brands.slice(0, 8).map(brand => ({...brand, nameVisible: false}))
 
@@ -57,20 +60,40 @@
 	<section class="mt-8 py-5">
 		<div class="container">
 			<h2 class="font-bold text-denny-blue-300 text-center text-xl">¿Buscas algún producto en especial?</h2>
-			<div class="categories__wrapper grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] lg:grid-cols-4 gap-4 justify-items-center mt-6 mb-8 overflow-hidden">
-				{categories.map(category => {
-					return (<Category name={category.name} imgSrc={category.image}/>)
-				})}
-			</div>
-			<button id="btn-more-categories" class="flex items-center mx-auto text-denny-blue-100 font-bold">
-				<strong>Ver más categorías</strong>
-				<span class="inline-block rotate-180 ml-1">
-					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-triangle" width="14" height="14" viewBox="0 0 24 24" stroke-width="1" stroke="#0D6FFF" fill="#0D6FFF" stroke-linecap="round" stroke-linejoin="round">
-						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-						<path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
-					</svg>
-				</span>
-			</button>
+			<details class="categories__details">
+				<summary class="list-none">
+					<div class="categories__wrapper grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center mt-6 mb-4 overflow-hidden">
+						{initialCategories.map(category => {
+							return (<Category name={category.name} imgSrc={category.image}/>)
+						})}
+					</div>
+					<button id="btn-more-categories" class="flex items-center mx-auto text-denny-blue-100 font-bold">
+						<strong>Ver más categorías</strong>
+						<span class="inline-block rotate-180 ml-1">
+							<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-triangle" width="14" height="14" viewBox="0 0 24 24" stroke-width="1" stroke="#0D6FFF" fill="#0D6FFF" stroke-linecap="round" stroke-linejoin="round">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+								<path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
+							</svg>
+						</span>
+					</button>
+				</summary>
+				<div class="categories__wrapper grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center mb-8 overflow-hidden">
+					{restCategories.map(category => {
+						return (<Category name={category.name} imgSrc={category.image}/>)
+					})}
+				</div>
+				<button id="btn-less-categories" class="flex items-center mx-auto text-denny-blue-100 font-bold">
+					<strong>Ver menos categorías</strong>
+					<span class="inline-block ml-1 ">
+						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-triangle" width="14" height="14" viewBox="0 0 24 24" stroke-width="1" stroke="#0D6FFF" fill="#0D6FFF" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+							<path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
+						</svg>
+					</span>
+				</button>
+			</details>
+
+
 		</div>
 	</section>
 
@@ -204,12 +227,15 @@
 
 	// See more categories
 	const btnMoreCategories = document.querySelector('#btn-more-categories');
-	btnMoreCategories.addEventListener('click', seeMoreCategories)
+	const btnLessCategories = document.querySelector('#btn-less-categories');
+	const detailsCategories = document.querySelector<HTMLDetailsElement>('.categories__details');
+	btnMoreCategories.addEventListener('click', toggleCategories)
+	btnLessCategories.addEventListener('click', toggleCategories)
 	// const wrapperCategories = document.querySelector('.wrapper-categories');
 
-	function seeMoreCategories() {
-		btnMoreCategories.querySelector('span').classList.toggle('rotate-180');
-		// wrapperCategories.classList.toggle('h-auto')
+	function toggleCategories() {
+		detailsCategories.open = !detailsCategories.open;
+		btnMoreCategories.classList.toggle("hidden");
 	}
 
 	// Contact
