@@ -13,7 +13,7 @@
 <div id="overlay"></div>
 
 <!-- Header -->
-<header class="sticky top-0 left-0 right-0  z-10">
+<header class="sticky top-0 left-0 right-0 z-10">
   <div class="px-6 py-3 flex items-center justify-between bg-denny-blue-300 text-white min-h-[50px] ">
     <p>Llámanos: +52 (462) 113 09 53</p>
     <Whatsapp/>
@@ -30,19 +30,19 @@
       </span>
     </button>
     <!-- Navbar -->
-    <nav class="absolute lg:min-h-min left-0 right-0 -top-[250%] lg:static lg:top-auto justify-self-start z-20 bg-white transition-all ease-in-out delay-75" id="nav-menu" aria-labelledby="btn-menu">
+    <nav class="absolute lg:min-h-min left-0 right-0 -top-[250%] lg:static lg:top-auto justify-self-start z-20  transition-all ease-in-out delay-75 overflow-y-scroll lg:overflow-y-visible h-64 lg:h-auto bg-white" id="nav-menu" aria-labelledby="btn-menu">
       <ul class="flex flex-col lg:flex-row lg:gap-2">
         <li class="font-bold border-b border-denny-light-100 lg:border-0 p-2 lg:p-0">
           <a href="/" class="py-2 px-3 rounded-3xl hover:bg-denny-light-200 transition ease-in delay-100">Inicio</a>
         </li>
         <li id="btn-submenu" class="font-bold border-b border-denny-light-100 lg:border-0 p-2 lg:p-0">
           <span class="py-2 px-3 rounded-3xl hover:bg-denny-light-200 transition ease-in delay-75 cursor-pointer">Productos</span>
-          <section id="submenu" class="px-6 lg:px-0 lg:bg-denny-light-200 text-denny-dark-300 scale-0 h-0 lg:absolute lg:top-[100%] lg:left-0 lg:right-0 lg:w-full overflow-y-scroll">
+          <section id="submenu" class="px-6 lg:px-0 lg:bg-denny-light-200 text-denny-dark-300 scale-0 h-0 lg:absolute lg:top-[100%] lg:left-0 lg:right-0 lg:w-full">
             <div class="lg:py-8 lg:container lg:flex lg:justify-between lg:items-center">
               <div class="lg:flex lg:w-2/5 justify-between">
                 <div>
                   <h3 class="text-denny-dark-500 font-black">Categorias</h3>
-                  <ul class="lg:flex lg:flex-col gap-2 grid grid-cols-4">
+                  <ul class="lg:flex lg:flex-col gap-2 grid grid-cols-2 md:grid-cols-4">
                     <li class="ml-2 lg:ml-0"><a href="#" role="menuitem" class="hover:text-denny-blue-100">Articulos de fiesta</a></li>
                     <li class="ml-2 lg:ml-0"><a href="#" role="menuitem" class="hover:text-denny-blue-100">Chocolates</a></li>
                     <li class="ml-2 lg:ml-0"><a href="#" role="menuitem" class="hover:text-denny-blue-100">Paletas</a></li>
@@ -58,7 +58,7 @@
                 </div>
                 <div>
                   <h3 class="text-denny-dark-500 font-black">Temporadas</h3>
-                  <ul class="lg:flex lg:flex-col gap-2 grid grid-cols-4">
+                  <ul class="lg:flex lg:flex-col gap-2 grid grid-cols-2 md:grid-cols-4">
                     <li class="ml-2 lg:ml-0"><a href="#" role="menuitem" class="hover:text-denny-blue-100">Cumpleaños</a></li>
                     <li class="ml-2 lg:ml-0"><a href="#" role="menuitem" class="hover:text-denny-blue-100">Mesa de dulces</a></li>
                     <li class="ml-2 lg:ml-0"><a href="#" role="menuitem" class="hover:text-denny-blue-100">San Valentin</a></li>
