@@ -80,7 +80,7 @@
 		<img src="/images/home/confetti-right.svg" alt="Confetti-Right" class="w-[100px] lg:w-auto absolute bottom-0 -right-5">
 		<div class="container">
 			<h2 class="font-bold text-denny-blue-300 text-center text-xl">Los favoritos de todos</h2>
-			<div class="favorites__wrapper mt-8 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-x-4 gap-y-5 justify-center justify-items-center">
+			<div class="favorites__wrapper mt-8 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-x-4 gap-y-14 justify-center justify-items-center">
 				{
 					favorites.map(fav => {
 						return (
@@ -124,7 +124,7 @@
 		<div class="container text-center">
 			<h2 class="font-bold text-denny-blue-300 text-center text-xl">Nuestras marcas de dulces</h2>
 			<BrandsList brandslist={brandsHome}/>
-			<a href="/marcas-dulces" class="py-2 px-3 inline-block bg-denny-blue-100 text-white rounded-3xl">Ver todos los productos por marca</a>
+			<a href="/marcas-dulces" class="py-2 px-3 inline-block bg-denny-blue-100 text-white rounded-3xl hover:bg-denny-blue-300 transition-colors delay-100">Ver todos los productos por marca</a>
 		</div>
 	</section>
 
