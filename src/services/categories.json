@@ -14,5 +14,33 @@
   {
     "name": "Gomitas",
     "image": "/images/categories/cat-gomitas.webp"
+  },
+  {
+    "name": "Articulos de fiesta",
+    "image": "/images/categories/cat-chocolates.webp"
+  },
+  {
+    "name": "Dulces enchilados",
+    "image": "/images/categories/cat-paletas.webp"
+  },
+  {
+    "name": "Botanas",
+    "image": "/images/categories/cat-caramelos.webp"
+  },
+  {
+    "name": "Chicles",
+    "image": "/images/categories/cat-gomitas.webp"
+  },
+  {
+    "name": "Bombones",
+    "image": "/images/categories/cat-chocolates.webp"
+  },
+  {
+    "name": "Dulces tipicos",
+    "image": "/images/categories/cat-paletas.webp"
+  },
+  {
+    "name": "Surtidos",
+    "image": "/images/categories/cat-caramelos.webp"
   }
 ]
