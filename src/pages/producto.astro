@@ -1,0 +1,137 @@
+---
+  // Layouts and components
+  import Layout from "@layouts/Layout.astro";
+  import Share from "@components/Share.astro";
+	import Product from "@components/Product.astro";
+
+  // Data
+	import products from '@services/products.json';
+
+  const titlePage = '★ Proveedores de Dulces al por Mayor | Dulcerías Denny';
+	const descriptionPage = 'Contamos con 130 marcas diferentes de caramelos, chocolates, paletas, y más. Nuestros 30 años de experiencia nos respaldan. ¡Visítanos hoy mismo!';
+
+
+  const recommendations = products.slice(0,3);
+---
+
+
+<Layout titlePage={titlePage} descriptionPage={descriptionPage}>
+  <main class="my-8">
+    <div class="container">
+      <!-- Product section -->
+      <section>
+
+        <article>
+          <div class="flex flex-col lg:flex-row">
+            <picture class="order-2 w-1/2 mx-auto max-w-sm lg:order-1 lg:w-1/2">
+              <img src="/images/products/product1.webp" alt="Panditas - Dulcerias Denny" class="w-full object-cover">
+            </picture>
+            <div class="order-1 text-denny-dark-400 lg:mt-2 lg:w-1/2">
+              <hgroup>
+                <h1 class="text-denny-dark-500 font-black text-2xl">Panditas clasicos</h1>
+                <p><small>Marca Ricolino</small></p>
+              </hgroup>
+              <div class="hidden lg:block">
+                <p class="mb-2">
+                  <small class="text-denny-pink-400 line-through font-medium">$160.00</small>
+                  <span class="text-denny-blue-300 font-black text-xl">$120.00</span>
+                </p>
+                <p><strong>120pzas</strong></p>
+                <h2>Gomitas sabores frutales: naranja, cereza, limón, piña. Paquete con 20 piezas de 15 gramos cada uno. Peso del paquete: 330 gramos.</h2>
+                <p class="my-2"><strong>SKU:</strong>00000</p>
+                <div class="mt-4 p-3 bg-denny-light-200 rounded-full flex justify-between">
+                  <div class="text-denny-blue-300 rounded-full overflow-hidden border border-slate-300 w-1/5 grid grid-cols-3">
+                    <button class="p-2 border-r border-slate-300">-</button>
+                    <span class="p-2 font-bold bg-white inline-block text-center">2</span>
+                    <button class="p-2 border-l border-slate-200">+</button>
+                  </div>
+                  <span class="text-denny-dark-400 font-bold mr-auto ml-4 inline-flex items-center">$240.00</span>
+                  <button id="btn-banner-contact" class="bg-denny-pink-400 text-white py-1 px-2 rounded-full">
+                    Me interesa
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="order-3 lg:hidden">
+              <p class="flex flex-col mb-2">
+                <small class="text-denny-pink-400 line-through font-medium">$160.00</small>
+                <span class="text-denny-blue-300 font-black text-xl">$120.00</span>
+              </p>
+              <p><strong>120pzas</strong></p>
+              <h2>Gomitas sabores frutales: naranja, cereza, limón, piña. Paquete con 20 piezas de 15 gramos cada uno. Peso del paquete: 330 gramos.</h2>
+              <p class="my-2"><strong>SKU:</strong>00000</p>
+              <div class="my-4 p-3 sm:bg-denny-light-200 rounded-full flex flex-col justify-center sm:flex-row sm:justify-between">
+                <div class="text-denny-blue-300 rounded-full overflow-hidden border border-slate-300 w-1/5 grid grid-cols-3 min-w-[120px] mx-auto sm:mx-0">
+                  <button class="p-2 border-r border-slate-300">-</button>
+                  <span class="p-2 font-bold bg-white inline-block text-center">2</span>
+                  <button class="p-2 border-l border-slate-200">+</button>
+                </div>
+                <span class="text-denny-dark-400 font-bold inline-flex items-center mx-auto my-4 sm:mr-auto sm:ml-4 sm:my-0">$240.00</span>
+                <button id="btn-banner-contact" class="bg-denny-pink-400 text-white py-2 px-2 rounded-full w-1/3 mx-auto sm:w-auto sm:mx-0">
+                  Me interesa
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 lg:mt-8">
+            <h3 class="text-denny-dark-500 font-black">Informacion adicional</h3>
+            <table class="block mt-2">
+              <tbody class="inline-block w-full">
+                <tr class="text-left flex justify-between py-2 border-b-slate-200 border-b">
+                  <th>Peso</th>
+                  <td class="">0.275 kg</td>
+                </tr>
+                <tr class="text-left flex justify-between py-2">
+                  <th>Dimensiones</th>
+                  <td class="">31x27x4 cm</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <!-- Share section -->
+      <section class="min-h-[25vh] grid place-items-center my-8">
+        <Share/>
+      </section>
+
+      <!-- Reccomendations products  -->
+      <section class="mt-8 py-5">
+        <div class="container">
+          <h2 class="font-bold text-denny-dark-500 text-center text-xl">También puede interesarte</h2>
+          <div class="favorites__wrapper mt-8 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-x-4 gap-y-5 justify-center justify-items-center">
+            {
+              recommendations.map(fav => {
+                return (
+                  <Product
+                  name={fav.name}
+                  quantity={fav.quantity}
+                  prevPrice={fav.prevPrice ?? null}
+                  price={fav.price}
+                  imgSrc={fav.imgSrc}
+                  />
+                )
+              })
+            }
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+
+<script>
+  // Contact
+	const contactWrapper = document.querySelector('#contact-wrapper');
+	const btnContactOpen = document.querySelector('#btn-banner-contact');
+  const overlay = document.querySelector('#overlay');
+
+	// Contact
+	btnContactOpen.addEventListener('click', () => {
+    contactWrapper.classList.remove('translate-x-full')
+    contactWrapper.classList.add('translate-x-0')
+    overlay.classList.add('overlay__toggle');
+  });
+</script>
