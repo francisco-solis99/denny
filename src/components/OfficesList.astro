@@ -1,0 +1,26 @@
+---
+  import Office from "@components/Office.astro";
+
+  const { list, id } = Astro.props;
+---
+
+
+<ul class:list={["list__offices grid gap-y-4 my-4 ", {isHidden: Number(id) !== 1}]} data-listid={id}>
+  {
+    list.map(office => {
+      return (
+        <li>
+          <Office locationName={office.locationName} location={office.location} mapCoords={office.mapCoords}/>
+        </li>
+      )
+    })
+  }
+</ul>
+
+
+<style>
+  .isHidden {
+    visibility: collapse;
+    max-height: 0;
+  }
+</style>

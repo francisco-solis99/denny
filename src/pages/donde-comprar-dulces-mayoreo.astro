@@ -1,0 +1,100 @@
+---
+  // Layouts and components
+  import Layout from "@layouts/Layout.astro";
+  import OfficesList from "@components/OfficesList.astro";
+
+
+  // Data
+  import offices from "@services/offices.json";
+
+  const titlePage = '▷ Dónde Comprar Dulces al Mayoreo para Dulcerías o Negocios';
+  const descriptionPage = 'Ubica la Dulcería más cercana y encuentra los dulces que estás buscando. Sucursales en Celaya, León, Querétaro, Irapuato, Salamanca y más.';
+
+  const cities = offices.map(({name, id}) => ({name, id}));
+---
+
+
+<Layout titlePage={titlePage} descriptionPage={descriptionPage}>
+  <main>
+    <!-- Principal copy -->
+    <section class="py-8 min-h-[350px] grid place-items-center bg-denny-light-200 text-denny-dark-400 ">
+      <div class="container text-center">
+        <h1 class="text-denny-dark-500 font-black text-2xl">Dónde comprar Dulces al Mayoreo</h1>
+        <h2 class="text-denny-blue-300 font-black text-lg mt-2">Conoce nuestras sucursales</h2>
+        <div class="mt-6 grid gap-y-4 max-w-5xl mx-auto">
+          <p>En Dulcerias Denny contamos con todo lo necesario para adornar y endulzar tu tiendita, dulcería cooperativa, fiesta, evento, o reunión… lo que busques, ¡nosotros lo tenemos!</p>
+          <p>Visítanos en alguna de nuestras sucursales distribuidas a lo largo del bajío y encuentra al mejor precio una amplia variedad de más de 2,000 productos como: chocolates, caramelos, botanas, gomitas y mucho, pero mucho más.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <div class="my-16 container md:flex md:justify-between">
+      <!-- Map iframe from google maps -->
+      <section class="relative min-h-[450px] max-h-[450px] md:w-3/5 bg-slate-200 transition-all delay-100">
+        <iframe id="iframe-map" src={`https://www.google.com/maps/embed?pb=${offices[0].offices[0].mapCoords}`} width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        class="absolute w-full h-full left-0 top-0"></iframe>
+      </section>
+      <!-- Maps sucursales -->
+      <section class="map mt-8 py-4 md:w-1/3 md:mb-auto md:mt-0">
+        <!-- Controls maps -->
+        <div class="map__controls">
+          <div class="flex gap-x-2 flex-wrap">
+            {
+              cities.map(city => {
+                return (
+                  <button class="btn__offices bg-denny-pink-400 text-white py-2 px-3 rounded-full text-sm sm::text-md" data-btnOfficesId={city.id}>{city.name}</button>
+                )
+              })
+            }
+          </div>
+          <div>
+            {
+              offices.map(office => {
+                return (
+                  <OfficesList list={office.offices} id={office.id}/>
+                )
+              })
+            }
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+
+<script>
+
+  // Open and close list of maps
+  const controlsArea = document.querySelector('.map__controls');
+  const listsOffices = Array.from(document.querySelectorAll<HTMLElement>('.list__offices'));
+
+  controlsArea.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if(!(target.classList.contains('btn__offices'))) return;
+
+    const id = target.dataset.btnofficesid;
+    listsOffices.forEach(list => {
+      if(list.dataset.listid === id) {
+        list.style.visibility = 'visible';
+        list.style.maxHeight = 'initial';
+      }
+      else {
+        list.style.visibility = 'collapse';
+        list.style.maxHeight = '0';
+      }
+    })
+  });
+
+  // Open and close an specific Map
+  const btnMaps = document.querySelectorAll<HTMLElement>('.btn__map');
+  const iframeMap = document.querySelector<HTMLIFrameElement>('#iframe-map');
+
+  btnMaps.forEach(btnMap => btnMap.addEventListener('click', () => {
+    const srcMap = btnMap.dataset.map;
+    iframeMap.src = `https://www.google.com/maps/embed?pb=${srcMap}`;
+  }));
+
+</script>
