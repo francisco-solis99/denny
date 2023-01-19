@@ -1,0 +1,80 @@
+---
+  // Layouts and components
+  import Layout from "@layouts/Layout.astro";
+
+  const titlePage = '★ Blog de Dulcerías Denny | Todo sobre Dulces';
+	const descriptionPage = '¡Deslúmbrate con nuestros tips y recetas con Dulces! Nuestros 30 años de experiencia nos respaldan para aconsejarte sobre caramelos, chocolates, y más.';
+---
+
+<!-- THIS PAGE HAS TO BE DYNAMIC -->
+<Layout titlePage={titlePage} descriptionPage={descriptionPage}>
+  <main class="">
+    <!-- HEADER BLOG -->
+    <header class="relative bg-blog-background bg-cover bg-no-repeat bg-center min-h-[380px]">
+        <div class="container p-4 grid place-items-center absolute bottom-0 left-1/2 -translate-x-1/2 min-h-[30vh] bg-white text-center">
+          <h1 class="text-denny-dark-500 font-black text-2xl sm:text-3xl">Blog de Dulcerías Denny</h1>
+          <h2 class="text-denny-blue-300 font-medium text-lg mt-2 mb-4">Todo lo que necesitas saber sobre Dulces</h2>
+          <p class="text-denny-dark-400 w-4/5 mx-auto">En este blog encontrarás la información más actual, así como tips y recomendaciones sobre todo lo relacionado con el mundo de los dulces.</p>
+        </div>
+    </header>
+    <div class="container">
+
+      <!-- Blog's POSTS -->
+      <section class="my-16 grid gap-12">
+        <article class="lg:flex lg:justify-between">
+          <picture class="lg:w-1/2 max-w-lg min-w-[280px] w-3/4 mx-auto block">
+            <a href="/post">
+              <img src="/images/blog/post.webp" alt="Post image" class="w-full object-cover">
+            </a>
+          </picture>
+          <div class="lg:w-7/12 mt-4 lg:mt-0 lg:ml-7 text-center sm:text-left">
+            <h3 class="text-denny-dark-500 font-black text-2xl">
+              <a href="/post">Titulo del articulo</a>
+            </h3>
+            <p class="mt-2 text-justify sm:text-left">Convallis mi eros leo laoreet et eu consectetur tempor venenatis nulla a sit parturient eget. Nam convallis venenatis vel aliquet ullamcorper sagittis dictum dis aliquet a parturient parturient varius porttitor elit est faucibus in mi. Proin cum consectetur a ut nibh sociis purus at mattis justo vestibulum sociosqu a erat senectus scelerisque metus nunc magna inceptos dictumst eu fames sagittis magna. Felis suspendisse dignissim sed ullamcorper gravida a elementum ad nullam ut placerat dis laoreet eget et nulla scelerisque a penatibus congue.</p>
+          </div>
+        </article>
+        <article class="lg:flex lg:justify-between">
+          <picture class="lg:w-1/2 max-w-lg min-w-[280px] w-3/4 mx-auto block">
+            <a href="/post">
+              <img src="/images/blog/post.webp" alt="Post image" class="w-full object-cover">
+            </a>
+          </picture>
+          <div class="lg:w-7/12 mt-4 lg:mt-0 lg:ml-7 text-center sm:text-left">
+            <h3 class="text-denny-dark-500 font-black text-2xl">
+              <a href="/post">Titulo del articulo</a>
+            </h3>
+            <p class="mt-2 text-justify sm:text-left">Convallis mi eros leo laoreet et eu consectetur tempor venenatis nulla a sit parturient eget. Nam convallis venenatis vel aliquet ullamcorper sagittis dictum dis aliquet a parturient parturient varius porttitor elit est faucibus in mi. Proin cum consectetur a ut nibh sociis purus at mattis justo vestibulum sociosqu a erat senectus scelerisque metus nunc magna inceptos dictumst eu fames sagittis magna. Felis suspendisse dignissim sed ullamcorper gravida a elementum ad nullam ut placerat dis laoreet eget et nulla scelerisque a penatibus congue.</p>
+          </div>
+        </article>
+        <article class="lg:flex lg:justify-between">
+          <picture class="lg:w-1/2 max-w-lg min-w-[280px] w-3/4 mx-auto block">
+            <a href="/post">
+              <img src="/images/blog/post.webp" alt="Post image" class="w-full object-cover">
+            </a>
+          </picture>
+          <div class="lg:w-7/12 mt-4 lg:mt-0 lg:ml-7 text-center sm:text-left">
+            <h3 class="text-denny-dark-500 font-black text-2xl">
+              <a href="/post">Titulo del articulo</a>
+            </h3>
+            <p class="mt-2 text-justify sm:text-left">Convallis mi eros leo laoreet et eu consectetur tempor venenatis nulla a sit parturient eget. Nam convallis venenatis vel aliquet ullamcorper sagittis dictum dis aliquet a parturient parturient varius porttitor elit est faucibus in mi. Proin cum consectetur a ut nibh sociis purus at mattis justo vestibulum sociosqu a erat senectus scelerisque metus nunc magna inceptos dictumst eu fames sagittis magna. Felis suspendisse dignissim sed ullamcorper gravida a elementum ad nullam ut placerat dis laoreet eget et nulla scelerisque a penatibus congue.</p>
+          </div>
+        </article>
+        <article class="lg:flex lg:justify-between">
+          <picture class="lg:w-1/2 max-w-lg min-w-[280px] w-3/4 mx-auto block">
+            <a href="/post">
+              <img src="/images/blog/post.webp" alt="Post image" class="w-full object-cover">
+            </a>
+          </picture>
+          <div class="lg:w-7/12 mt-4 lg:mt-0 lg:ml-7 text-center sm:text-left">
+            <h3 class="text-denny-dark-500 font-black text-2xl">
+              <a href="/post">Titulo del articulo</a>
+            </h3>
+            <p class="mt-2 text-justify sm:text-left">Convallis mi eros leo laoreet et eu consectetur tempor venenatis nulla a sit parturient eget. Nam convallis venenatis vel aliquet ullamcorper sagittis dictum dis aliquet a parturient parturient varius porttitor elit est faucibus in mi. Proin cum consectetur a ut nibh sociis purus at mattis justo vestibulum sociosqu a erat senectus scelerisque metus nunc magna inceptos dictumst eu fames sagittis magna. Felis suspendisse dignissim sed ullamcorper gravida a elementum ad nullam ut placerat dis laoreet eget et nulla scelerisque a penatibus congue.</p>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+</Layout>
+
