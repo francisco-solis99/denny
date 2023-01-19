@@ -36,6 +36,9 @@ module.exports = {
           purple: '#64007C',
           yelllow: '#FFD500'
         }
+      },
+      backgroundImage: {
+        'blog-background': "url('/images/blog/blogBackground.webp')"
       }
     }
   },
