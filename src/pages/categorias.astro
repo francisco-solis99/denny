@@ -1,0 +1,108 @@
+---
+  // Layouts and components
+  import Layout from "@layouts/Layout.astro";
+  import Searcher from "@components/Searcher.astro";
+  import Dropdown from "@components/Dropdown.astro";
+	import Product from "@components/Product.astro";
+  import SeeMore from "@components/SeeMore.astro";
+
+
+
+  // Data
+	import categories from '@services/categories.json';
+  import products from '@services/products.json';
+
+  const titlePage = '★ Venta de Chocolates por Mayoreo en Dulcerías Denny';
+  const descriptionPage = 'Sorpréndete con nuestra amplia variedad de chocolates de la mejor calidad para tu negocio. ¡También tenemos chocolates para regalar en toda ocasión!';
+---
+
+<!-- THIS PAGE HAS TO BE DYNAMIC -->
+<Layout titlePage={titlePage} descriptionPage={descriptionPage}>
+  <main class="">
+      <!-- HEADER -->
+      <header class="min-h-[180px] grid place-items-center bg-denny-light-200">
+        <div class="container flex">
+          <div class="flex-1">
+           <Dropdown options={categories}/>
+          </div>
+          <div class="w-2/3 ml-8">
+            <Searcher/>
+          </div>
+        </div>
+      </header>
+
+      <div class="container py-8">
+        <!-- COPY -->
+        <section class="text-center my-8">
+          <h1 class="text-denny-dark-500 text-2xl font-black">Venta de Chocolates por Mayoreo</h1>
+          <h2 class="mt-4 text-denny-blue-300 text-xl font-black">La mejor calidad y variedad en chocolates para toda ocasión</h2>
+          <p class="text-denny-dark-400">Ofrecemos una amplia variedad de marcas de chocolates para tu negocio o para regalar a esa persona especial.</p>
+          <h3 class="mt-10 text-denny-dark-500 text-xl font-black">Deléitate con el exquisito sabor de nuestra variedad en chocolates</h3>
+        </section>
+
+        <!-- List of products results -->
+        <section class="my-8 grid grid-cols-[1fr_3fr]">
+          <!-- Controls filter -->
+          <aside>
+            <fieldset class="flex flex-col text-denny-dark-300">
+              <legend class="text-dark-500 font-bold">Marcas</legend>
+              <label>
+                <input name="marcas" type="checkbox" value="">
+                <span>De la rosa</span>
+              </label>
+              <label>
+                <input name="marcas" type="checkbox" value="">
+                <span>Dulces Vero</span>
+              </label>
+              <label>
+                <input name="marcas" type="checkbox" value="">
+                <span>Gamesa</span>
+              </label>
+              <label>
+                <input name="marcas" type="checkbox" value="">
+                <span>Ricolino</span>
+              </label>
+              <label>
+                <input name="marcas" type="checkbox" value="">
+                <span>Sonric's</span>
+              </label>
+            </fieldset>
+          </aside>
+          <!-- List of products -->
+          <div>
+            <a href="/promociones" class="flex justify-between p-4 text-white bg-gradient-to-r from-denny-red-100 via-red-500 to-denny-red-200 rounded-md">
+              <span class="text-white font-black">Conoce nuestras proociones del mes</span>
+              <span class="p-1 inline-flex bg-denny-light-200 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0D6FFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <polyline points="9 6 15 12 9 18" />
+                </svg>
+              </span>
+            </a>
+            <div class="favorites__wrapper mt-8 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] md:grid-cols-3 gap-x-4 gap-y-20 justify-center justify-items-center">
+              {
+                products.map(fav => {
+                  return (
+                    <Product
+                    name={fav.name}
+                    quantity={fav.quantity}
+                    prevPrice={fav.prevPrice ?? null}
+                    price={fav.price}
+                    imgSrc={fav.imgSrc}
+                    type='secondary'
+                    />
+                  )
+                })
+              }
+            </div>
+          </div>
+        </section>
+
+        <!-- More categories -->
+        <section class="my-28">
+    			<h2 class="font-bold text-denny-blue-300 text-center text-xl">Todas las Categorias</h2>
+          <SeeMore/>
+        </section>
+      </div>
+  </main>
+</Layout>
