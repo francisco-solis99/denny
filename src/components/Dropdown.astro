@@ -1,0 +1,20 @@
+---
+  interface Props {
+    options: Array<any>
+  }
+
+  const { options } = Astro.props;
+---
+
+<div class="h-full">
+  <label for="category-select"></label>
+  <select name="categories" id="category-select" class="w-full h-full bg-transparent font-bold text-xl">
+    {
+      options.map(category => {
+        return (
+        <option value={ category.name }>{ category.name }</option>
+        )
+      })
+    }
+  </select>
+</div>
