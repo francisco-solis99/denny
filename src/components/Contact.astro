@@ -18,21 +18,22 @@
       <input type="text" id="interests" placeholder="Interés en" class="w-full p-3 bg-white rounded-3xl">
       <label for="message" class="visually__hidden">Mensaje:</label>
       <textarea name="" id="message" cols="30" rows="5" placeholder="Mensaje" class="w-full p-3 bg-white rounded-3xl" required aria-required="true"></textarea>
+      <!-- <div class="g-recaptcha" data-sitekey="your_site_key"></div> -->
+      <div id="html_element"></div>
       <input type="submit" value="Enviar" class="w-2/5 mx-auto mt-4 py-2 px-3 bg-denny-pink-400 text-white rounded-3xl cursor-pointer">
     </form>
   </div>
 </section>
 
 
-<style>
-  .visually__hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-</style>
+<script type="text/javascript">
+  var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+          'sitekey' : 'your_site_key'
+        });
+  };
+</script>
+
+<script is:inline src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>
