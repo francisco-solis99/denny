@@ -4,18 +4,17 @@
   import Searcher from "@components/Searcher.astro";
   import Dropdown from "@components/Dropdown.astro";
 	import Product from "@components/Product.astro";
-  import SeeMore from "@components/SeeMore.astro";
   import CheckList from "@components/CheckList.astro";
 
 
-
   // Data
-	import categories from '@services/categories.json';
+	import seasons from '@services/seasons.json';
   import products from '@services/products.json';
+  import categories from '@services/categories.json';
   import brands from '@services/brands.json';
 
-  const titlePage = '★ Venta de Chocolates por Mayoreo en Dulcerías Denny';
-  const descriptionPage = 'Sorpréndete con nuestra amplia variedad de chocolates de la mejor calidad para tu negocio. ¡También tenemos chocolates para regalar en toda ocasión!';
+  const titlePage = '★ Venta de Dulces Día de Muertos y Halloween | Dulcerías Denny';
+  const descriptionPage = 'Encuentra la más amplia variedad de chocolates, caramelos  y botanas que tenemos para celebrar Halloween y Día de muertos. ¡Endulza tu vida!';
 ---
 
 <!-- THIS PAGE HAS TO BE DYNAMIC -->
@@ -25,7 +24,7 @@
       <header class="min-h-[180px] grid place-items-center bg-denny-light-200">
         <div class="container flex flex-col sm:flex-row">
           <div class="flex-1 mb-4 sm:mb-0">
-           <Dropdown options={categories}/>
+           <Dropdown options={seasons}/>
           </div>
           <div class="w-full sm:w-2/3 sm:ml-8">
             <Searcher/>
@@ -35,21 +34,29 @@
 
       <div class="container py-8">
         <!-- COPY -->
-        <section class="text-center my-8">
-          <h1 class="text-denny-dark-500 text-2xl font-black">Venta de Chocolates por Mayoreo</h1>
-          <h2 class="mt-4 text-denny-blue-300 text-xl font-black">La mejor calidad y variedad en chocolates para toda ocasión</h2>
-          <p class="text-denny-dark-400">Ofrecemos una amplia variedad de marcas de chocolates para tu negocio o para regalar a esa persona especial.</p>
-          <h3 class="mt-10 text-denny-dark-500 text-xl font-black">Deléitate con el exquisito sabor de nuestra variedad en chocolates</h3>
+        <section class="flex flex-col sm:flex-row justify-between gap-4 text-center my-8 items-center">
+          <picture class="w-1/2 min-w-[225px] sm:w-1/5  inline-block">
+            <img src="/images/seasons/dia-muertos.webp" alt="Dia de muertos - Dulcerias Denny" class="w-full object-cover">
+          </picture>
+          <div class="w-3/4">
+            <h1 class="text-denny-dark-500 text-2xl font-black">Venta de Dulces para Día de Muertos y Halloween</h1>
+            <h2 class="mt-4 text-denny-blue-300 text-xl font-black">Sorpréndete con nuestro amplio surtido de dulces para celebrar la noche del Día de Muertos o Halloween</h2>
+            <p class="text-denny-dark-400">Endulza una noche tan terrorífica con nuestra gran variedad de chocolates, dulces y botanas que tenemos para ti.</p>
+            <h3 class="mt-10 text-denny-dark-500 text-xl font-black">Los mejores dulces para regalar o poner en tu ofrenda</h3>
+          </div>
         </section>
 
         <!-- List of products results -->
-        <section class="my-8 grid grid-cols-1 sm:grid-cols-[1fr_3fr]">
+        <section class="my-6 grid grid-cols-1 sm:grid-cols-[1fr_3fr]">
           <!-- Controls filter -->
-          <aside class="my-4 sm:my-0">
+          <aside class="my-4 sm:my-0 flex flex-col gap-y-3">
+            <CheckList listName="Categorias" checkList={categories}/>
             <CheckList listName="Marcas" checkList={brands}/>
           </aside>
+
           <!-- List of products -->
           <div>
+            <!-- Banner promotions -->
             <a href="/promociones" class="flex justify-between p-4 text-white bg-gradient-to-r from-denny-red-100 via-red-500 to-denny-red-200 rounded-md">
               <span class="text-white font-black">Conoce nuestras proociones del mes</span>
               <span class="p-1 inline-flex bg-denny-light-200 rounded-full">
@@ -76,12 +83,6 @@
               }
             </div>
           </div>
-        </section>
-
-        <!-- More categories -->
-        <section class="my-28">
-    			<h2 class="font-bold text-denny-blue-300 text-center text-xl">Todas las Categorias</h2>
-          <SeeMore/>
         </section>
       </div>
   </main>
