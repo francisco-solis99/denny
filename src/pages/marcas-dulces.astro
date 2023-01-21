@@ -6,6 +6,8 @@
 
   const titlePage = '▷ Marcas de Dulces para tu Tienda | Venta por Mayoreo';
   const descriptionPage = 'Si necesitas un Distribuidor de Dulces, nosotros contamos con más de 125 marcas diferentes para surtir tu Dulcería o Negocio ¡Contáctanos!';
+
+  const multipleBrands = [...brands.flat(), ...brands.flat(), ...brands.flat(),]
 ---
 
 
@@ -18,7 +20,7 @@
       <p class="text-denny-dark-400">En Dulcerías Denny trabajamos con más de 130 marcas diferentes y contamos con más de 2,000 productos disponibles para su venta en cualquiera de nuestras sucursales.</p>
     </header>
     <section class="my-14">
-      <BrandsList brandslist={brands}/>
+      <BrandsList brandslist={multipleBrands}/>
     </section>
   </div>
 </main>
