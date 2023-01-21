@@ -1,11 +1,9 @@
 ---
 // Layouts and components
 	import Layout from "@layouts/Layout.astro";
-	import Category from "@components/Category.astro";
   import Share from "@components/Share.astro";
+  import SeeMore from "@components/SeeMore.astro";
 
-  // Data
-  import categories from '@services/categories.json';
 
   const titlePage = 'Distribuidor de dulces, botanas y caramelos por mayoreo';
   const descriptionPage = 'Contamos con el más amplio surtido de dulces, botanas y caramelos, brindándote siempre un gran servicio y sobre todo el mejor precio. ¡Endulza tu vida!';
@@ -43,21 +41,21 @@
             <h2 class="">Abasolo</h2>
             <p>Lerdo de Tejada 109, Zona Centro. Abasolo Guanajuato 36970. México.</p>
           </hgroup>
-          <a href="#" class="py-2 px-3 bg-denny-blue-100 text-white rounded-full">Ver mapa</a>
+          <a href="/donde-comprar-dulces-mayoreo" class="py-2 px-3 bg-denny-blue-100 text-white rounded-full">Ver mapa</a>
         </article>
         <article class="shadow-md p-4 rounded-xl max-w-xs bg-white">
           <hgroup class="mb-6">
             <h2 class="">Abasolo</h2>
             <p>Lerdo de Tejada 109, Zona Centro. Abasolo Guanajuato 36970. México.</p>
           </hgroup>
-          <a href="#" class="py-2 px-3 bg-denny-blue-100 text-white rounded-full">Ver mapa</a>
+          <a href="/donde-comprar-dulces-mayoreo" class="py-2 px-3 bg-denny-blue-100 text-white rounded-full">Ver mapa</a>
         </article>
         <article class="shadow-md p-4 rounded-xl max-w-xs bg-white">
           <hgroup class="mb-6">
             <h2 class="">Abasolo</h2>
             <p>Lerdo de Tejada 109, Zona Centro. Abasolo Guanajuato 36970. México.</p>
           </hgroup>
-          <a href="#" class="py-2 px-3 bg-denny-blue-100 text-white rounded-full">Ver mapa</a>
+          <a href="/donde-comprar-dulces-mayoreo" class="py-2 px-3 bg-denny-blue-100 text-white rounded-full">Ver mapa</a>
         </article>
       </div>
     </section>
@@ -66,20 +64,7 @@
     <section class="mt-12 py-5">
       <div class="container">
         <h2 class="font-bold text-denny-blue-300 text-center text-xl">¿Buscas algún producto en especial?</h2>
-        <div class="categories__wrapper grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] lg:grid-cols-4 gap-4 justify-items-center mt-6 mb-8 overflow-hidden">
-          {categories.map(category => {
-            return (<Category name={category.name} imgSrc={category.image}/>)
-          })}
-        </div>
-        <button id="btn-more-categories" class="flex items-center mx-auto text-denny-blue-100 font-bold">
-          <strong>Ver más categorías</strong>
-          <span class="inline-block rotate-180 ml-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-triangle" width="14" height="14" viewBox="0 0 24 24" stroke-width="1" stroke="#0D6FFF" fill="#0D6FFF" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
-            </svg>
-          </span>
-        </button>
+			  <SeeMore/>
       </div>
     </section>
 
