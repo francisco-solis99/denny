@@ -21,7 +21,7 @@
     <div class="container">
       <!-- Product section -->
       <section>
-
+        <!-- This could be a product component different as the Product maybe this would be ProductDetails -->
         <article>
           <div class="flex flex-col lg:flex-row">
             <picture class="order-2 w-1/2 mx-auto max-w-sm lg:order-1 lg:w-1/2">
@@ -64,10 +64,10 @@
               <div class="my-4 p-3 sm:bg-denny-light-200 rounded-full flex flex-col justify-center sm:flex-row sm:justify-between">
                 <div class="text-denny-blue-300 rounded-full overflow-hidden border border-slate-300 w-1/5 grid grid-cols-3 min-w-[120px] mx-auto sm:mx-0">
                   <button class="p-2 border-r border-slate-300">-</button>
-                  <span class="p-2 font-bold bg-white inline-block text-center">2</span>
+                  <span class="p-2 font-bold bg-white inline-block text-center">1</span>
                   <button class="p-2 border-l border-slate-200">+</button>
                 </div>
-                <span class="text-denny-dark-400 font-bold inline-flex items-center mx-auto my-4 sm:mr-auto sm:ml-4 sm:my-0">$240.00</span>
+                <span class="text-denny-dark-400 font-bold inline-flex items-center mx-auto my-4 sm:mr-auto sm:ml-4 sm:my-0">$120.00</span>
                 <button id="btn-banner-contact" class="bg-denny-pink-400 text-white py-2 px-2 rounded-full w-1/3 mx-auto sm:w-auto sm:mx-0">
                   Me interesa
                 </button>
@@ -124,15 +124,20 @@
 
 
 <script>
-  // Contact
+  // Contact- Me interesa action
 	const contactWrapper = document.querySelector('#contact-wrapper');
-	const btnContactOpen = document.querySelector('#btn-banner-contact');
+	const btnContactOpen = document.querySelectorAll('#btn-banner-contact');
   const overlay = document.querySelector('#overlay');
 
-	// Contact
-	btnContactOpen.addEventListener('click', () => {
+	btnContactOpen.forEach(btn => btn.addEventListener('click', () => {
     contactWrapper.classList.remove('translate-x-full')
     contactWrapper.classList.add('translate-x-0')
     overlay.classList.add('overlay__toggle');
-  });
+  }));
+
+  // See the cost according to the number of articles that they want
+  // const btnsMore = document.querySelector('#btn-more');
+  // const btnsLess = document.querySelector('#btn-less');
+  // const times = document.querySelector('#times');
+  // const timesPrice = document.querySelector('#times-price');
 </script>
