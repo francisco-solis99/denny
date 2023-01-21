@@ -1,0 +1,28 @@
+---
+
+  interface Props {
+    listName: string,
+    checkList: Array<any>
+  }
+
+  const { listName, checkList } = Astro.props;
+
+
+---
+
+
+
+
+<fieldset class="flex flex-row sm:flex-col gap-x-2 gap-y-1 flex-wrap text-denny-dark-300">
+  <legend class="text-dark-500 font-bold">{listName}</legend>
+  {
+    checkList.map(item => {
+      return (
+      <label for={item.name}>
+        <input name={listName} type="checkbox" value={item.name}>
+        <span>{item.name}</span>
+      </label>
+      )
+    })
+  }
+</fieldset>
