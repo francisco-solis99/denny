@@ -1,32 +1,32 @@
 [
   {
     "name": "De la rosa",
-    "imgSrc": "/images/brands/marca-1.png",
+    "imgSrc": "/images/brands/marca-1.webp",
     "nameVisible": true
   },
   {
     "name": "Ricolino",
-    "imgSrc": "/images/brands/marca-2.png",
+    "imgSrc": "/images/brands/marca-2.webp",
     "nameVisible": true
   },
   {
     "name": "Sonrics",
-    "imgSrc": "/images/brands/marca-3.png",
+    "imgSrc": "/images/brands/marca-3.webp",
     "nameVisible": true
   },
   {
     "name": "Dulces Vero",
-    "imgSrc": "/images/brands/marca-4.png",
+    "imgSrc": "/images/brands/marca-4.webp",
     "nameVisible": true
   },
   {
     "name": "Gamesa",
-    "imgSrc": "/images/brands/marca-5.png",
+    "imgSrc": "/images/brands/marca-5.webp",
     "nameVisible": true
   },
   {
     "name": "Sabritas",
-    "imgSrc": "/images/brands/marca-6.png",
+    "imgSrc": "/images/brands/marca-6.webp",
     "nameVisible": true
   }
 ]

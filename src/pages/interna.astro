@@ -21,39 +21,19 @@
     <div class="container">
       <!-- Product section -->
       <section>
-        <!-- This could be a product component different as the Product maybe this would be ProductDetails -->
+        <!-- This could be a product component different as the Product maybe this would be ProductDetails component -->
         <article>
-          <div class="flex flex-col lg:flex-row">
-            <picture class="order-2 w-1/2 mx-auto max-w-sm lg:order-1 lg:w-1/2">
-              <img src="/images/products/product1.webp" alt="Panditas - Dulcerias Denny" class="w-full object-cover">
+          <div class="grid lg:grid-cols-2 lg:grid-rows-[100px_auto] items-center">
+            <picture class="w-1/2 mx-auto max-w-sm min-w-[200px] lg:w-1/2 lg:row-start-1 lg:row-end-3 lg:col-span-1">
+              <img src="/images/products/product.webp" alt="Panditas - Dulcerias Denny" class="w-full object-cover">
             </picture>
-            <div class="order-1 text-denny-dark-400 lg:mt-2 lg:w-1/2">
+            <div class="text-denny-dark-400 lg:mt-2 lg:w-1/2 row-start-1 row-end-2">
               <hgroup>
-                <h1 class="text-denny-dark-500 font-black text-2xl">Panditas clasicos</h1>
-                <p><small>Marca Ricolino</small></p>
+                <h1 class="text-denny-dark-500 font-black text-3xl">Panditas clasicos</h1>
+                <p class="text-base"><small>Marca Ricolino</small></p>
               </hgroup>
-              <div class="hidden lg:block">
-                <p class="mb-2">
-                  <small class="text-denny-pink-400 line-through font-medium">$160.00</small>
-                  <span class="text-denny-blue-300 font-black text-xl">$120.00</span>
-                </p>
-                <p><strong>120pzas</strong></p>
-                <h2>Gomitas sabores frutales: naranja, cereza, limón, piña. Paquete con 20 piezas de 15 gramos cada uno. Peso del paquete: 330 gramos.</h2>
-                <p class="my-2"><strong>SKU:</strong>00000</p>
-                <div class="mt-4 p-3 bg-denny-light-200 rounded-full flex justify-between">
-                  <div class="text-denny-blue-300 rounded-full overflow-hidden border border-slate-300 w-1/5 grid grid-cols-3">
-                    <button class="p-2 border-r border-slate-300">-</button>
-                    <span class="p-2 font-bold bg-white inline-block text-center">2</span>
-                    <button class="p-2 border-l border-slate-200">+</button>
-                  </div>
-                  <span class="text-denny-dark-400 font-bold mr-auto ml-4 inline-flex items-center">$240.00</span>
-                  <button id="btn-banner-contact" class="bg-denny-pink-400 text-white py-1 px-2 rounded-full">
-                    Me interesa
-                  </button>
-                </div>
-              </div>
             </div>
-            <div class="order-3 lg:hidden">
+            <div class="lg:row-start-2 lg:row-end-3">
               <p class="flex flex-col mb-2">
                 <small class="text-denny-pink-400 line-through font-medium">$160.00</small>
                 <span class="text-denny-blue-300 font-black text-xl">$120.00</span>
@@ -68,12 +48,13 @@
                   <button class="p-2 border-l border-slate-200">+</button>
                 </div>
                 <span class="text-denny-dark-400 font-bold inline-flex items-center mx-auto my-4 sm:mr-auto sm:ml-4 sm:my-0">$120.00</span>
-                <button id="btn-banner-contact" class="bg-denny-pink-400 text-white py-2 px-2 rounded-full w-1/3 mx-auto sm:w-auto sm:mx-0">
+                <button id="btn-banner-contact" class="bg-denny-pink-400 text-white py-2 px-2 rounded-full w-1/3 mx-auto sm:w-auto sm:mx-0 transition-opacity hover:opacity-80">
                   Me interesa
                 </button>
               </div>
             </div>
           </div>
+
           <div class="mt-6 lg:mt-8">
             <h3 class="text-denny-dark-500 font-black">Informacion adicional</h3>
             <table class="block mt-2">
